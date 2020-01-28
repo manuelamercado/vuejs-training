@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>{{ message }}</h3>
+    <h3>{{ msg }}</h3>
     <div class="row">
       <input v-model.number="num1" type="number">
       <span>+</span>
