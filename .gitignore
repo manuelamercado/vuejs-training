@@ -1,6 +1,7 @@
 .DS_Store
-/hello-word/node_modules
-/hello-word/dist
+/app/node_modules
+/app/dist
+/app/package-lock.json
 
 # local env files
 .env.local
