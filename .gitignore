@@ -3,6 +3,14 @@
 /app/dist
 /app/package-lock.json
 
+/destinations/node_modules
+/destinations/dist
+/destinations/package-lock.json
+
+/destinations-nuxt/node_modules
+/destinations-nuxt/dist
+/destinations-nuxt/package-lock.json
+
 # local env files
 .env.local
 .env.*.local
