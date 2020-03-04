@@ -1,60 +1,69 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <h2>Your Upcoming Destinations</h2>
+    <div class="location-contain">
+      <div class="locations" v-for="location in locations" :key="location">
+        <place :location="location">
+          <h2>{{ location.name }}</h2>
+        </place>
+      </div>
+  </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import Place from './components/Place';
+
+  export default {
+    components: {
+      Place
+    },
+    name: 'app',
+    data () {
+      return {
+        locations: [
+          {
+            name: 'moscow',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/moscow.svg',
+            desc: `Moscow is the capital and most populous city of Russia, with 13.2 million residents within the city limits and 17.8 million within the urban area. Moscow has the status of a Russian federal city.`
+          },
+          {
+            name: 'paris',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/paris1.svg',
+            desc: `Paris is the capital and most populous city of France. By the 17th century, Paris was one of Europe's major centres of finance, commerce, fashion, science, and the arts, and it retains that position still today.`
+          },
+          {
+            name: 'rome',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/rome.svg',
+            desc: `Rome's history spans more than 2,500 years. While Roman mythology dates the founding of Rome at around 753 BC, the site has been inhabited for much longer, making it one of the oldest continuously occupied sites in Europe.`
+          },
+          {
+            name: 'paris',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/paris2.svg',
+            desc: `Paris is the capital and most populous city of France. By the 17th century, Paris was one of Europe's major centres of finance, commerce, fashion, science, and the arts, and it retains that position still today.`
+          },
+        ]
+      }
     }
-  }
-}
+  };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'NTR', sans-serif;
+    background: #eee;
+  }
 
-h1, h2 {
-  font-weight: normal;
-}
+  h1 {
+    text-align: center;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+  .location-contain {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
 </style>
