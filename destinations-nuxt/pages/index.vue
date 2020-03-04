@@ -1,65 +1,74 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
-      <h1 class="title">
-        destinations-nuxt
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
+      <h2 class="title">
+        Your Upcoming Destinations
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+      <div class="location-contain">
+        <div class="locations" v-for="location in locations" :key="location">
+          <place :location="location">
+            <h2>{{ location.name }}</h2>
+          </place>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import Place from '~/components/Place.vue'
 
 export default {
   components: {
-    AppLogo
+    Place
+  },
+  name: 'app',
+    data () {
+      return {
+        locations: [
+          {
+            name: 'moscow',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/moscow.svg',
+            desc: `Moscow is the capital and most populous city of Russia, with 13.2 million residents within the city limits and 17.8 million within the urban area. Moscow has the status of a Russian federal city.`
+          },
+          {
+            name: 'paris',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/paris1.svg',
+            desc: `Paris is the capital and most populous city of France. By the 17th century, Paris was one of Europe's major centres of finance, commerce, fashion, science, and the arts, and it retains that position still today.`
+          },
+          {
+            name: 'rome',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/rome.svg',
+            desc: `Rome's history spans more than 2,500 years. While Roman mythology dates the founding of Rome at around 753 BC, the site has been inhabited for much longer, making it one of the oldest continuously occupied sites in Europe.`
+          },
+          {
+            name: 'paris',
+            img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/paris2.svg',
+            desc: `Paris is the capital and most populous city of France. By the 17th century, Paris was one of Europe's major centres of finance, commerce, fashion, science, and the arts, and it retains that position still today.`
+          },
+        ]
+      }
+    }
   }
-}
 </script>
 
 <style>
 .container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    width: 100vw;
+    height: 100vh;
+    font-family: 'NTR', sans-serif;
+    background: #eee;
+  }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  h1 {
+    text-align: center;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+  .location-contain {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
 </style>
 
