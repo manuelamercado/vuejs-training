@@ -1,7 +1,7 @@
-import { mount, shallowMount } from '@vue/test-utils'
-import App from '@/App.vue'
+import { shallowMount } from '@vue/test-utils'
+// import App from '@/App.vue'
 import SimpleCalculator from '@/components/SimpleCalculator.vue'
-import { isIterable } from 'core-js'
+// import { isIterable } from 'core-js'
 
 describe('App.vue', () => {
   // const wrapper = mount(App)

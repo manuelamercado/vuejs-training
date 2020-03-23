@@ -7,6 +7,7 @@
       <input v-model.number="num2" type="number">
       <span>=</span>
       <span>{{ num1 + num2 }}</span>
+      <span>Congratulations! you won the {{ num1 | placeTH }}</span>
     </div>
     <div class="row second">
       <select v-model="name">
